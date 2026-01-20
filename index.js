@@ -1,14 +1,33 @@
-require("dotenv").config();
+import express from 'express';
+import path from 'path';
+import mongoose from 'mongoose';
+import nodemailer from 'nodemailer';
+import twilio from 'twilio';
+import Contact from '../models/Contact.js';
+import { fileURLToPath } from 'url';
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+/* =======================
+   Database Connection
+======================= */
+require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
-const path = require("path");
-const nodemailer = require("nodemailer");
-const twilio = require("twilio");
 
-const Contact = require("./models/Contact");
+mongoose.connect(process.env.MONGO_URI)
+  .then(() => console.log("MongoDB Connected"))
+  .catch(err => console.log("MongoDB Error:", err));
 
 const app = express();
+
+/* =======================
+    Environment Variables
+======================= */
+if (process.env.NODE_ENV !== 'production') {
+     require('dotenv').config();
+}
 
 /* =======================
    Middlewares
@@ -122,4 +141,6 @@ ${message}
 app.get('/about', (req, res) => {
     res.render('about', { page: 'about' });
 });
+
+module.exports = app;
 
