@@ -18,4 +18,4 @@ app.get("/", (req, res) => {
   res.send("Vercel server working ✅");
 });
 
-export default app;
+module.exports = app;
