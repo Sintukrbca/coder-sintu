@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Coder Sintu - Contact</title>
+  <link rel="shortcut icon" href="/images/logo.icon.png" type="image/x-icon" />
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
+        integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+  <%- include('partials/header') %>
+
+  <main>
+    <section class="section">
+      <div class="container contact-layout">
+
+        <div class="contact-left">
+          <div class="profile-card">
+            <img src="/images/sintu.jpg" alt="Sintu Kumar" class="profile-image" />
+            <h2 class="profile-name">Sintu Kumar</h2>
+            <p class="profile-role">Web Developer & BCA Student</p>
+            <div class="social-row">
+              <a href="https://www.instagram.com/x_tylish__si_n_tu?utm_source=qr&igsh=N2poNjc1YndpaDNo" target="_blank">
+                <i class="fa-brands fa-instagram"></i>
+              </a>
+              <a href="https://www.facebook.com/profile.php?id=100080942697123" target="_blank">
+                <i class="fa-brands fa-facebook"></i>
+              </a>
+              <a href="https://github.com/Sintukrbca" target="_blank">
+                <i class="fa-brands fa-github"></i>
+              </a>
+              <a href="https://www.linkedin.com/in/sintu-kumar-97813933a/?trk=opento_sprofile_pfeditor" target="_blank">
+                <i class="fa-brands fa-linkedin"></i>
+              </a>
+              <a href="https://x.com/x_tylish_si_ntu" target="_blank">
+                <i class="fa-brands fa-x-twitter"></i>
+              </a>
+              <a href="https://www.youtube.com/@Coder_Sintu/shorts" target="_blank">
+                <i class="fa-brands fa-youtube"></i>
+              </a>
+            </div>
+            <div class="contact-address">
+              <h3>Location</h3>
+              <p>AP Colony, Gaya, Bihar, India</p>
+            </div>
+          </div>
+
+          <div class="map-wrapper">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d44147.41819601388!2d84.94088068196196!3d24.783388540668415!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f32a440a1b3c1f%3A0xcef6b223bdbf34a6!2sGaya%2C%20Bihar!5e1!3m2!1sen!2sin!4v1732458364331!5m2!1sen!2sin"
+              allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
+        </div>
+
+        <div class="contact-right">
+          <h2 class="section-title">Say Hello 👋</h2>
+          <p class="section-text">
+            Have a project, question or just want to connect? Send me a message
+            and I’ll get back to you soon.
+          </p>
+
+          <% if (typeof successMessage !== 'undefined' && successMessage) { %>
+            <div class="alert success"><%= successMessage %></div>
+          <% } %>
+
+          <% if (typeof errorMessage !== 'undefined' && errorMessage) { %>
+            <div class="alert error"><%= errorMessage %></div>
+          <% } %>
+
+          <form action="/contact" method="POST" class="contact-form">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input required type="text" id="name" name="name" placeholder="Your name" />
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input required type="email" id="email" name="email" placeholder="you@example.com" />
+            </div>
+
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea required id="message" name="message" rows="5"
+                        placeholder="Write your message here..."></textarea>
+            </div>
+
+            <button type="submit" class="btn primary full-width">Send Message</button>
+          </form>
+
+
+          <!-- <form action="https://api.web3forms.com/submit" method="POST">
+    <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY">
+
+    <label>Name</label>
+    <input type="text" name="name" required>
+
+    <label>Email</label>
+    <input type="email" name="email" required>
+
+    <label>Message</label>
+    <textarea name="message" required></textarea>
+
+    <button type="submit">Send Message</button>
+</form> -->
+
+
+          <p class="section-text small muted">
+            Your message will be stored securely in my database and I will be
+            notified via email and SMS.
+          </p>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <% include('partials/footer'); %>
+</body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Coder Sintu</title>
+
+  <link rel="shortcut icon" href="/images/logo.icon.png" type="image/x-icon" />
+  <link rel="stylesheet" href="/css/style.css" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <%- include('partials/header.ejs') %>
+
+    <main>
+
+      <!-- HERO SECTION -->
+      <section class="hero">
+        <div class="container hero-inner">
+
+          <div class="hero-image-wrapper">
+            <img src="/images/my.jpg" alt="Sintu Kumar" class="hero-image" />
+          </div>
+
+          <div class="hero-content">
+            <p class="hero-tag">Web Developer • Programmer • BCA Student</p>
+            <h1 class="hero-title">Hi, I'm <span>Sintu Kumar</span></h1>
+            <p class="hero-text">
+              I’m a tech enthusiast and an aspiring software developer currently
+              pursuing my Bachelor of Computer Applications (BCA).
+            </p>
+
+            <div class="hero-buttons">
+              <a href="/education" class="btn primary">View Education</a>
+              <a href="/contact" class="btn outline">Contact Me</a>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- SKILLS + ABOUT -->
+      <section class="section">
+        <div class="container two-col">
+
+          <div class="info-card">
+            <div class="icon-circle">
+              <i class="fa-solid fa-laptop-code"></i>
+            </div>
+            <h2 class="section-title">My Skills</h2>
+            <ul class="list">
+              <li><b>Programming:</b> Python, Java, VB.NET, C, C++, JavaScript</li>
+              <li><b>Web:</b> HTML, CSS, Responsive Design, WordPress</li>
+              <li><b>Database:</b> Oracle SQL, MySQL</li>
+              <li><b>Tools:</b> GitHub, VS Code, Canva, MS Office</li>
+            </ul>
+          </div>
+
+          <div class="info-card">
+            <div class="icon-circle">
+              <i class="fa-solid fa-user-graduate"></i>
+            </div>
+            <h2 class="section-title">About Me</h2>
+            <p class="section-text">
+              I enjoy learning new technologies and building projects that solve
+              real-world problems.
+            </p>
+            <a href="/about" class="btn text-link">Read more →</a>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- PROJECTS SECTION -->
+      <section class="section">
+        <div class="container">
+          <h2 class="section-title center">My Projects</h2>
+          <p class="section-text center muted">
+            Some of the projects I have built during my learning journey.
+          </p>
+
+          <div class="projects-grid">
+
+            <div class="project-card">
+              <img src="/images/project/sm.png" alt="School Management">
+              <h3>School Management System</h3>
+              <p>
+                A web-based system to manage students, teachers, classes and marks.
+              </p>
+              <span class="project-tag">Web</span>
+              <div class="project-actions">
+                <a href="https://github.com/Sintukrbca/school-management" target="_blank" class="btn github">
+                  <i class="fa-brands fa-github"></i>
+                  Source Code
+                </a>
+              </div>
+            </div>
+
+            <div class="project-card">
+              <img src="/images/project/lms.png" alt="Library Management">
+              <h3>Library Management System</h3>
+              <p>
+                Database-driven system for book issue, return and record keeping.
+              </p>
+              <span class="project-tag">Database</span>
+              <div class="project-actions">
+                <a href="https://github.com/Sintukrbca" target="_blank" class="btn github">
+                  <i class="fa-brands fa-github"></i>
+                  Source Code
+                </a>
+              </div>
+            </div>
+
+            <div class="project-card">
+              <img src="/images/project/sr.png" alt="Student Record">
+              <h3>Student Record System</h3>
+              <p>
+                A student management application focused on maintaining accurate records.
+              </p>
+              <span class="project-tag">Full Stack</span>
+              <div class="project-actions"> 
+                <a href="https://github.com/Sintukrbca" target="_blank" class="btn github">
+                  <i class="fa-brands fa-github"></i>
+                  Source Code
+                </a>
+              </div>
+            </div>
+
+          </div>
+
+          <div style="text-align:center; margin-top:2rem;">
+            <a href="/projects" class="btn primary">View All Projects</a>
+          </div>
+
+        </div>
+      </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <%- include('partials/footer.ejs') %>
+
+</body>
+
+</html>
