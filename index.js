@@ -1,33 +1,14 @@
-import express from 'express';
-import path from 'path';
-import mongoose from 'mongoose';
-import nodemailer from 'nodemailer';
-import twilio from 'twilio';
-import Contact from '../models/Contact.js';
-import { fileURLToPath } from 'url';
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-/* =======================
-   Database Connection
-======================= */
 require("dotenv").config();
+
 const express = require("express");
 const mongoose = require("mongoose");
+const path = require("path");
+const nodemailer = require("nodemailer");
+const twilio = require("twilio");
 
-mongoose.connect(process.env.MONGO_URI)
-  .then(() => console.log("MongoDB Connected"))
-  .catch(err => console.log("MongoDB Error:", err));
+const Contact = require("./models/Contact");
 
 const app = express();
-
-/* =======================
-    Environment Variables
-======================= */
-if (process.env.NODE_ENV !== 'production') {
-     require('dotenv').config();
-}
 
 /* =======================
    Middlewares
@@ -142,5 +123,18 @@ app.get('/about', (req, res) => {
     res.render('about', { page: 'about' });
 });
 
-module.exports = app;
-
+/* =======================
+   MongoDB Connection and Server Start
+======================= */
+const PORT = process.env.PORT || 3000;
+mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+    .then(() => {
+        console.log("✅ MongoDB Connected");
+        app.listen(PORT, () => {
+            console.log(`🚀 Server running on http://localhost:${PORT}`);
+        });
+    })
+    .catch(err => {
+        console.error('❌ MongoDB connection error:', err.message || err);
+        process.exit(1);
+    });
