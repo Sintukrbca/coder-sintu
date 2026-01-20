@@ -123,18 +123,5 @@ app.get('/about', (req, res) => {
     res.render('about', { page: 'about' });
 });
 
-/* =======================
-   MongoDB Connection and Server Start
-======================= */
-const PORT = process.env.PORT || 3000;
-mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
-    .then(() => {
-        console.log("✅ MongoDB Connected");
-        app.listen(PORT, () => {
-            console.log(`🚀 Server running on http://localhost:${PORT}`);
-        });
-    })
-    .catch(err => {
-        console.error('❌ MongoDB connection error:', err.message || err);
-        process.exit(1);
-    });
+
+export default app;
