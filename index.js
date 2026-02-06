@@ -1,12 +1,9 @@
 require("dotenv").config();
 
 const express = require("express");
-const mongoose = require("mongoose");
 const path = require("path");
 const nodemailer = require("nodemailer");
 const twilio = require("twilio");
-
-const Contact = require("./models/Contact");
 
 const app = express();
 
@@ -81,11 +78,7 @@ app.get("/contact", (req, res) => {
 ======================= */
 app.post("/contact", async (req, res) => {
     const { name, email, message } = req.body;
-
     try {
-        // 1️⃣ Save to MongoDB
-        await Contact.create({ name, email, message });
-
         // 2️⃣ Send Email
         await mailTransporter.sendMail({
             from: `"Portfolio Contact" <${process.env.EMAIL_USER}>`,
@@ -124,14 +117,9 @@ app.get('/about', (req, res) => {
 });
 
 /* =======================
-   MongoDB Connection and Server Start
+   Server Start
 ======================= */
-// const PORT = process.env.PORT || 3000;
-// mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
-//     .then(() => {
-//         console.log("✅ MongoDB Connected");
-//         app.listen(PORT, () => {
-//             console.log(`🚀 Server running on http://localhost:${PORT}`);
-//         });
-//     })
-   
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`🚀 Server running on http://localhost:${PORT}`);
+});
