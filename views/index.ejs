@@ -25,7 +25,7 @@
         <div class="container hero-inner">
 
           <div class="hero-image-wrapper">
-            <img src="/images/my.jpg" alt="Sintu Kumar" class="hero-image" />
+            <img src="/images/my.jpeg" alt="Sintu Kumar" class="hero-image" />
           </div>
 
           <div class="hero-content">
@@ -124,7 +124,7 @@
                 A student management application focused on maintaining accurate records.
               </p>
               <span class="project-tag">Full Stack</span>
-              <div class="project-actions"> 
+              <div class="project-actions">
                 <a href="https://github.com/Sintukrbca" target="_blank" class="btn github">
                   <i class="fa-brands fa-github"></i>
                   Source Code
@@ -146,6 +146,13 @@
     <!-- FOOTER -->
     <%- include('partials/footer.ejs') %>
 
+      <script>
+        const img = document.querySelector(".hero-image");
+
+        img.onload = () => {
+          img.classList.add("active");
+        };
+      </script>
 </body>
 
 </html>
